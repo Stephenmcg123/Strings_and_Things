@@ -13,6 +13,7 @@ class SportsEquipmentsController < ApplicationController
 
   def create
     @sports_equipment = SportsEquipment.new(sports_equipment_params)
+    @sports_equipment.user = current_user
     if @sports_equipment.save
       redirect_to sports_equipment_path(@sports_equipment)
     else

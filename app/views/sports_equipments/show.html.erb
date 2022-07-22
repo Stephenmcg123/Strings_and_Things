@@ -1,0 +1,11 @@
+<h2><%= @sports_equipment.category %></h2>
+<p><%= @sports_equipment.size %></p>
+<p><%= @sports_equipment.price %>€ per hour</p>
+<p><%= @sports_equipment.condition %>/5</p>
+<% if @sports_equipment.availability == true %>
+  <p>The product is available</p>
+<% else %>
+  <p>The product is not available</p>
+<% end %>
+
+<%= link_to "Go back", sports_equipments_path %>
