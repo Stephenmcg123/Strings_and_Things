@@ -7,4 +7,7 @@ class PagesController < ApplicationController
   def about
   end
 
+  def my_bookings
+    @bookings = Booking.where(user: current_user)
+  end
 end

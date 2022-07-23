@@ -1,23 +1,33 @@
 class BookingsController < ApplicationController
   before_action :set_bookmark, only: :destroy
-  before_action :set_list, only: %i[new create]
+  before_action :set_sports_equipment, only: %i[new create]
   # GET /sports_equipments/:sports_equipment_id/bookings/new
   def new
-
+    @booking = Booking.new
   end
+
   # POST /sports_equipments/:sports_equipment_id/bookings
   def create
-
+    @booking = Booking.new(booking_params)
+    @booking.sports_equipment = @sports_equipment
+    @booking.user = current_user
+    if @booking.save
+      redirect_to my_bookings_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
+
   # DELETE //bookings/id
   def destroy
-
+    @booking.destroy
+    redirect_to sports_equipment_path(@booking.sports_equipment)
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :start_hour, :return_date, :return_hour, :user_id, :sports_equipment_id)
+    params.require(:booking).permit(:start_date, :return_date)
   end
 
   def set_booking

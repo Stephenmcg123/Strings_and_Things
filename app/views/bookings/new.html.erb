@@ -1,0 +1,14 @@
+<h3>Book your sports equipment</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <%= simple_form_for [@sports_equipment, @booking] do |f| %>
+        <%= f.input :start_date, placeholder: 'Which day would you like to pick up your equipment?' %>
+        <%= f.input :return_date, placeholder: 'Which day would you like to return your equipment?' %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Go back", sports_equipments_path %>
