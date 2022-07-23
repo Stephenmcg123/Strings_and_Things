@@ -1,4 +1,4 @@
 Geocoder.configure(
-    units :km
-    
+    units: :km   
+
 )
