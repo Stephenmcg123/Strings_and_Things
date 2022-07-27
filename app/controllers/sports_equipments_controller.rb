@@ -2,7 +2,14 @@ class SportsEquipmentsController < ApplicationController
   before_action :set_sports_equipment, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sports_equipments = SportsEquipment.all
+    # @sports_equipments = SportsEquipment.all
+    if params[:query].present?
+      sql_query = "category ILIKE :query OR size ILIKE :query"
+      @sports_equipments = SportsEquipment.where(sql_query, query: "%#{params[:query]}%")
+      # @sports_equipments = SportsEquipment.search_by_category_and_size(params[:query])
+    else
+      @sports_equipments = SportsEquipment.all
+    end
   end
 
   def show; end
