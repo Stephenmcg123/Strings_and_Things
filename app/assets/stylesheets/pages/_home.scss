@@ -1,9 +1,29 @@
 // Specific CSS for your home-page
-h1, h3 {
+body{
+  background-color:#d8d8f2b5;
+}
+
+h1{
     margin: 32px 0 24px 0;
     text-align: center;
-    // color: $sand;
+    font-weight: bolder;
+    color: #4e4ead;
   }
+
+h3 {
+    margin: 32px 0 24px 0;
+    text-align: center;
+    font-weight: bolder;
+    color: #575572;
+}
+
+// .title-img{
+//   border-style: solid;
+//     border-color: $light-gray;
+//     border-width: 1px;
+//     border-radius: 16px;
+//     margin: 32px 0 32px 0;
+// }
   
 #banner_image, .calendar {
     border-style: solid;
@@ -17,7 +37,7 @@ h1, h3 {
     width: 100%;
   }
 
-  
+
 .container {
     hr {
     margin: 12px auto;
@@ -29,16 +49,30 @@ h1, h3 {
   }
   
 .row {
-    p {
-      font-size: 12px;
-      color: $gray;
+    h3 {
+      font-size: 20px;
+      color: #5d5a8d;
     }
+}
+
+.racket-btn{
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+
+.racket-btn{
+  h3{
+    font-size: 16px;
+    font-weight: bolder;
+    padding-bottom: 80px;
   }
-  
-.top_rated_preview {
-    margin-top: 18px;
-    vertical-align: middle;
-  }
+}
+
+.book-now-btn{
+  border-radius: 4px;
+  margin-top: 20px;
+}
  
 .carousel-out{
     width: 50%;
@@ -50,7 +84,7 @@ h1, h3 {
     background-position: center !important;
     background-repeat: no-repeat !important;
     display: inline-block;
-    }
+}
   
 .container-2 {
     position: relative;
@@ -58,6 +92,7 @@ h1, h3 {
     color: #ffeaea;
     font-weight: bolder;
   }
+
 .centered {
     position: absolute;
     top: 50%;
@@ -72,3 +107,7 @@ h1, h3 {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+
+.testimonials{
+  height: 20px;
+}
