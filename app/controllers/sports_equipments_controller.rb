@@ -4,9 +4,9 @@ class SportsEquipmentsController < ApplicationController
   def index
     # @sports_equipments = SportsEquipment.all
     if params[:query].present?
-      sql_query = "category ILIKE :query OR size ILIKE :query"
-      @sports_equipments = SportsEquipment.where(sql_query, query: "%#{params[:query]}%")
-      # @sports_equipments = SportsEquipment.search_by_category_and_size(params[:query])
+      # sql_query = "category ILIKE :query OR size ILIKE :query"
+      # @sports_equipments = SportsEquipment.where(sql_query, query: "%#{params[:query]}%")
+      @sports_equipments = SportsEquipment.search_by_category_and_size(params[:query])
     else
       @sports_equipments = SportsEquipment.all
     end
