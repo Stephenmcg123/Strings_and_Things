@@ -1,7 +1,17 @@
-<h1>Have a look to our Rackets</h1>
+<h1>Have a look at the available rackets to rent</h1>
   <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-outline-success" %>
 
 <h2>All our Sports Equipments (<%= SportsEquipment.count %>)</h2>
+
+<%= form_tag sports_equipments_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Which sport do you want to play?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-sm-6">
