@@ -4,9 +4,11 @@
 <p><%= @sports_equipment.condition %>/5</p>
 <% if @sports_equipment.availability == true %>
   <p>The product is available</p>
-  <%= link_to "Book", new_sports_equipment_booking_path(@sports_equipment) %>
+  <%# <% unless @sports_equipment.availability == current_user %>
+    <%= link_to "Book", new_sports_equipment_booking_path(@sports_equipment), class: "btn btn-success" %>
+  <%# <% end %>
 <% else %>
   <p>The product is not available</p>
 <% end %>
 
-<%= link_to "Go back", sports_equipments_path %>
+<%= link_to "Go back", sports_equipments_path, class: "btn btn-outline-danger"  %>

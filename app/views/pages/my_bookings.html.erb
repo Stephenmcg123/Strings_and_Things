@@ -3,4 +3,8 @@
   <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
   <% price_per_hour = booking.sports_equipment.price * total_hours %>
   <p>Total price : <%= price_per_hour %> € for your booking.</p>
+  <%# <% if policy(SportsEquipment).destroy? %>
+      <%# <%= link_to "Cancel", booking_path(booking), class: "btn btn-outline-danger", method: :delete, data: {
+          confirm: "Are you sure?" } %>
+  <%# <% end %>
 <% end %>
