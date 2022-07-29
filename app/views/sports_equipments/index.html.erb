@@ -1,10 +1,14 @@
 <h1>Have a look at the available rackets to rent</h1>
-  <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-outline-success" %>
 
-<h2>All our Sports Equipments (<%= SportsEquipment.count %>)</h2>
 <div class="container">
   <div class="row justify-content-center mt-5">
-    <div class="col-sm-6">
+    <div class="col-sm-10">    
+      
+      <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-outline-success" %>
+
+
+      <h2>All our Sports equipment (<%= SportsEquipment.count %>)</h2>
+
       <% @sports_equipments.each do |equipment| %>
         <h2><%= equipment.category %></h2>
         <p><%= equipment.size %></p>
