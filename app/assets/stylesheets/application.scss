@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/footer";
+
 
 body{
     margin: 0 10px;
@@ -98,5 +100,4 @@ body{
       font-weight: bold;
       line-height: 5px;
     }
-  
-  
+
