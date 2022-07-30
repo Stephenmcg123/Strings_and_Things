@@ -1,6 +1,7 @@
+
 <h2>See my bookings</h2>
 
-      <% @bookings.each do |booking| %>
+      <% @bookings.each do |booking| %> 
       <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
       <% price_per_hour = booking.sports_equipment.price * total_hours %>
       <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> for your booking</p>
