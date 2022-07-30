@@ -1,9 +1,15 @@
-
-<h2>See my bookings</h2>
-
-      <% @bookings.each do |booking| %> 
-      <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
-      <% price_per_hour = booking.sports_equipment.price * total_hours %>
-      <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> for your booking</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-10 mb-3 mt-3">
+      <h2>See my bookings</h2>
+      <% @bookings.each do |booking| %>
+        <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
+        <% price_per_hour = booking.sports_equipment.price * total_hours %>
+        <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> for your booking</p>
+        <%# <%= link_to "Modify", new_sports_equipment_booking_path(@sports_equipment), class: "btn btn-outline-danger" %>
+        <%= link_to "Cancel", booking_path(booking), class: "btn btn-outline-danger", method: :delete, data: {
+        confirm: "Are you sure?" } %>
       <% end %>
-
+    </div>
+  </div>
+</div>
