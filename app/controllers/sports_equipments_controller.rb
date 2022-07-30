@@ -2,7 +2,6 @@ class SportsEquipmentsController < ApplicationController
   before_action :set_sports_equipment, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @sports_equipments = SportsEquipment.all
     if params[:query].present?
       # sql_query = "category ILIKE :query OR size ILIKE :query"
       # @sports_equipments = SportsEquipment.where(sql_query, query: "%#{params[:query]}%")
@@ -16,11 +15,13 @@ class SportsEquipmentsController < ApplicationController
 
   def new
     @sports_equipment = SportsEquipment.new
+    authorize @sports_equipment
   end
 
   def create
     @sports_equipment = SportsEquipment.new(sports_equipment_params)
     @sports_equipment.user = current_user
+    authorize @sports_equipment
     if @sports_equipment.save
       redirect_to sports_equipment_path(@sports_equipment)
     else
@@ -44,6 +45,7 @@ class SportsEquipmentsController < ApplicationController
 
   def set_sports_equipment
     @sports_equipment = SportsEquipment.find(params[:id])
+    authorize @sports_equipment
   end
 
   def sports_equipment_params
