@@ -1,22 +1,21 @@
 <h2>My current bookings</h2>
 
 <div class="container">
-      <div class="row">
-            <% @bookings.each do |booking| %>
-                  <div class="col-3"> 
-                        <div class="card-product my-2">
-                              <img src="<%=image_url("padel.jpg")%>">
-                              <div class="card-product-infos">
-                                    <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
-                                    <% price_per_hour = booking.sports_equipment.price * total_hours %>
-                                    <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> cost of booking</p>
-                                    <%# <%= link_to "Modify", new_sports_equipment_booking_path(@sports_equipment), class: "btn btn-outline-danger" %>
-                                    <%= link_to "Cancel", booking_path(booking), class: "btn btn-outline-danger", method: :delete, data: {
-                                    confirm: "Are you sure?" } %>
-                              </div>
-                        </div>
-                  </div>
-             <% end %>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-3">
+        <div class="card-product my-2">
+          <img src="<%=image_url("padel.jpg")%>">
+          <div class="card-product-infos">
+                <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
+                <% price_per_hour = booking.sports_equipment.price * total_hours %>
+                <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> cost of booking</p>
+                <%# <%= link_to "Modify", new_sports_equipment_booking_path(@sports_equipment), class: "btn btn-outline-danger" %>
+                <%= link_to "Cancel", booking_path(booking), class: "btn btn-outline-danger", method: :delete, data: {
+                confirm: "Are you sure?" } %>
+          </div>
+        </div>
       </div>
-
- </div>
+    <% end %>
+  </div>
+</div>
