@@ -22,19 +22,21 @@
       <h2>All our Sports equipments (<%= SportsEquipment.count %>)</h2>
 
       <% @sports_equipments.each do |equipment| %>
-        <h2><%= equipment.category %></h2>
-        <p>Size : <%= equipment.size %></p>
-        <% if equipment.availability %>
-          <p>Available</p>
-          <%= link_to "Book", sports_equipment_path(equipment), class: "btn btn-success" %>
-        <% else %>
-          <p>Not available</p>
-          <%= link_to "More infos", sports_equipment_path(equipment), class: "btn btn-link" %>
-        <% end %>
+      <div class="cards-">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+              <h2><%= equipment.category %></h2>
+              <p>Size : <%= equipment.size %></p>
+              <% if equipment.availability %>
+                <p>Available</p>
+                <%= link_to "Book", sports_equipment_path(equipment), class: "btn btn-success" %>
+              <% else %>
+                <p>Not available</p>
+                <%= link_to "More infos", sports_equipment_path(equipment), class: "btn btn-link" %>
+              <% end %>
+        </div>
         <% if equipment.user == current_user %>
           <%= link_to "Edit", edit_sports_equipment_path(equipment), class: "btn btn-outline-warning" %>
           <%= link_to "Remove", sports_equipment_path(equipment), class: "btn btn-outline-danger", method: :delete, data: {
-
           confirm: "Are you sure?" } %>
         <% end %>
       <% end %>
