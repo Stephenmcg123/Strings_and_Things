@@ -11,7 +11,10 @@
       <% else %>
         <p>The product is not available</p>
       <% end %>
-
+      <% if @sports_equipment.photo.attached? %>
+        <%= cl_image_path @sports_equipment.photo.key, height: 300, width: 300, crop: :fill %>
+      <% end %>
+      
       <%= link_to "Go back", sports_equipments_path, class:"btn btn-outline-danger" %>
     </div>
   </div>
