@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-      <%= simple_form_for @sports_equipment do |f| %>
-        <%= f.input :category, placeholder: 'Tennis' %>
-        <%= f.input :size, placeholder: 'S|M|L|XL' %>
-        <%= f.input :price, placeholder: 'Price per hour' %>
-        <%= f.input :condition, placeholder: 'Rate from o to 5' %>
-        <%= f.input :availability %>
-        <%= f.submit class: "btn btn-primary" %>
-      <% end %>
+ <h1>Fill out the form below</h1>
+
+<%= simple_form_for @sports_equipment do |f| %>
+  <%= f.input :category, placeholder: 'Tennis' %>
+  <%= f.input :size, placeholder: 'S|M|L|XL' %>
+  <%= f.input :price, placeholder: 'Price per hour' %>
+  <%= f.input :condition, placeholder: 'Rate from o to 5' %>
+  <%= f.input :availability %>
+  <%= f.submit  value: 'Rent your racket', class: "btn btn-success" %>
+<% end %>
     </div>
   </div>    
 </div>
-
-

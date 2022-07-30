@@ -1,14 +1,19 @@
-<h2><%= @sports_equipment.category %></h2>
-<p><%= @sports_equipment.size %></p>
-<p><%= @sports_equipment.price %>€ per hour</p>
-<p><%= @sports_equipment.condition %>/5</p>
-<% if @sports_equipment.availability == true %>
-  <p>The product is available</p>
-  <%= link_to "Book", new_sports_equipment_booking_path(@sports_equipment) %>
-<% else %>
-  <p>The product is not available</p>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2><%= @sports_equipment.category %></h2>
+      <p>Size: <%= @sports_equipment.size %></p>
+      <p><%= @sports_equipment.price %>€ per hour</p>
+      <p><%= @sports_equipment.condition %>/5</p>
+      <% if @sports_equipment.availability == true %>
+        <p>The product is available</p>
+        <%= link_to "Book", new_sports_equipment_booking_path(@sports_equipment), class:"btn btn-success" %>
+      <% else %>
+        <p>The product is not available</p>
+      <% end %>
 
-<%= link_to "Go back", sports_equipments_path %>
-
+      <%= link_to "Go back", sports_equipments_path, class:"btn btn-outline-danger" %>
+    </div>
+  </div>
+</div>
 
