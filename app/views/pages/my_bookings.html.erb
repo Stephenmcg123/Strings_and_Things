@@ -1,8 +1,19 @@
-<h2>See my bookings</h2>
+<h2>My current bookings</h2>
 
-      <% @bookings.each do |booking| %>
-      <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
-      <% price_per_hour = booking.sports_equipment.price * total_hours %>
-      <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> for your booking</p>
-      <% end %>
+<div class="container">
+      <div class="row">
+            <% @bookings.each do |booking| %>
+                  <div class="col-3"> 
+                        <div class="card-product my-2">
+                              <img src="<%=image_url("padel.jpg")%>">
+                              <div class="card-product-infos">
+                                    <% total_hours = ((booking.return_date - booking.start_date) / 3600).to_i %>
+                                    <% price_per_hour = booking.sports_equipment.price * total_hours %>
+                                    <h2>Total price :</h2> <p>€<%= (price_per_hour).round(2) %> cost of booking</p>
+                              </div>
+                        </div>
+                  </div>
+             <% end %>
+      </div>
 
+ </div>
