@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to sports_equipment_path(@booking.sports_equipment)
+    authorize @booking
   end
 
   private
@@ -34,7 +35,6 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
-    authorize @booking
   end
 
   def set_sports_equipment

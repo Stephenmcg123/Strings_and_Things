@@ -1,6 +1,6 @@
 class SportsEquipment < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   geocoded_by :address
 
   # after_validation :geocode, if: :will_save_change_address?
@@ -10,5 +10,4 @@ class SportsEquipment < ApplicationRecord
                   using: {
                     tsearch: { prefix: true } # <-- now `superman batm` will return something!
                   }
-
 end
