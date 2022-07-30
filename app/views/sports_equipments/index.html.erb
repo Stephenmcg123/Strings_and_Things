@@ -1,32 +1,31 @@
-<h1>Have a look at the available rackets to rent</h1>
-
-<h2>All our Sports Equipments (<%= SportsEquipment.count %>)</h2>
+<h2>Search our available equipment (<%= SportsEquipment.count %>)</h2>
 
 <%= form_tag sports_equipments_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-horizontal col-6 col-lg-3",
     placeholder: "Which sport do you want to play?"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-primary mt-2" %>
 <% end %>
 
 <div class="container">
   <div class="row justify-content-center mt-5">
-    <div class="col-sm-10">    
+    <div class="col-sm-10 mb-3">    
       
-      <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-outline-success" %>
+      <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-success btn1" %>
 
 
-      <h2>All our Sports equipment (<%= SportsEquipment.count %>)</h2>
+      <h2 class="availability">All our Sports equipment (<%= SportsEquipment.count %>) </h2>
 
       <% @sports_equipments.each do |equipment| %>
-        <h2><%= equipment.category %></h2>
+        <h3 class="sport-type"><%= equipment.category %></h3>
         <p><%= equipment.size %></p>
+        <p><%= equipment.condition %></p>
         <p><%= equipment.availability %></p>
-        <%= link_to "More info", sports_equipment_path(equipment) %>
-        <%= link_to "Edit", edit_sports_equipment_path(equipment), class: "btn btn-outline-warning" %>
-        <%= link_to "Remove", sports_equipment_path(equipment), class: "btn btn-outline-danger", method: :delete, data: {
+        <%= link_to "More info", sports_equipment_path(equipment), class: "btn btn-outline-primary btn2" %>
+        <%= link_to "Edit", edit_sports_equipment_path(equipment), class: "btn btn-warning btn3" %>
+        <%= link_to "Remove", sports_equipment_path(equipment), class: "btn btn-danger btn4", method: :delete, data: {
           confirm: "Are you sure?" } %>
         <% end %>
     </div>
