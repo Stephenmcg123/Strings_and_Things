@@ -49,6 +49,6 @@ class SportsEquipmentsController < ApplicationController
   end
 
   def sports_equipment_params
-    params.require(:sports_equipment).permit(:category, :size, :price, :availability, :condition)
+    params.require(:sports_equipment).permit(:category, :size, :price, :availability, :condition, :photo)
   end
 end
