@@ -11,23 +11,38 @@
 
 <div class="container">
   <div class="row justify-content-center mt-5">
+
     <div class="col-sm-10 mb-3">    
       
       <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-success btn1" %>
 
 
-      <h2 class="availability">All our Sports equipment (<%= SportsEquipment.count %>) </h2>
+    <% if policy(SportsEquipment).create? %>
+      <%= link_to "Add a Racket", new_sports_equipment_path, class: "btn btn-outline-warning" %>
+    <% end %>
+
+
+      <h2>All our Sports equipments (<%= SportsEquipment.count %>)</h2>
 
       <% @sports_equipments.each do |equipment| %>
-        <h3 class="sport-type"><%= equipment.category %></h3>
-        <p><%= equipment.size %></p>
-        <p><%= equipment.condition %></p>
-        <p><%= equipment.availability %></p>
-        <%= link_to "More info", sports_equipment_path(equipment), class: "btn btn-outline-primary btn2" %>
-        <%= link_to "Edit", edit_sports_equipment_path(equipment), class: "btn btn-warning btn3" %>
-        <%= link_to "Remove", sports_equipment_path(equipment), class: "btn btn-danger btn4", method: :delete, data: {
+        <h2><%= equipment.category %></h2>
+        <p>Size : <%= equipment.size %></p>
+        <% if equipment.availability %>
+          <p>Available</p>
+          <%= link_to "Book", sports_equipment_path(equipment), class: "btn btn-success" %>
+        <% else %>
+          <p>Not available</p>
+          <%= link_to "More infos", sports_equipment_path(equipment), class: "btn btn-link" %>
+        <% end %>
+        <% if equipment.user == current_user %>
+          <%= link_to "Edit", edit_sports_equipment_path(equipment), class: "btn btn-outline-warning" %>
+          <%= link_to "Remove", sports_equipment_path(equipment), class: "btn btn-outline-danger", method: :delete, data: {
+
           confirm: "Are you sure?" } %>
         <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+
+
