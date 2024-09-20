@@ -1,13 +1,17 @@
-<h2>Search our available equipment (<%= SportsEquipment.count %>)</h2>
+<div class="searching-bar">
+  <h2>Search our available equipment (<%= SportsEquipment.count %>)</h2>
 
-<%= form_tag sports_equipments_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-horizontal col-6 col-lg-3",
-    placeholder: "Which sport do you want to play?"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary mt-2" %>
-<% end %>
+  <%= form_tag sports_equipments_path, method: :get, class: "search-form" do %>
+    <div class="input-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Which sport do you want to play?"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
 
 <div class="container mt-3">
   <div class="row justify-content-center mt-5">
