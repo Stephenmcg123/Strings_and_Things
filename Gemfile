@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
+gem 'rails', '~> 7.0.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
@@ -28,16 +28,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass', '~> 5.6.1'
+gem 'autoprefixer-rails'
+gem 'font-awesome-sass', '~> 6.4.0'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
 gem 'pg_search', '~> 2.3.0'
 
 gem 'devise'
 gem 'pundit'
-gem 'cloudinary', '~> 1.16.0'
-
+gem 'cloudinary', '~> 1.28'
 
 group :development, :test do
   gem 'pry-byebug'
