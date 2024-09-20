@@ -84,3 +84,4 @@ production:
   database: Strings_and_Things_production
   username: Strings_and_Things
   password: <%= ENV['STRINGS_AND_THINGS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
