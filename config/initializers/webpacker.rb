@@ -1,0 +1,1 @@
+Webpacker.compile = true if ENV['RAILS_ENV'] == 'production'

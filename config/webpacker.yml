@@ -92,3 +92,6 @@ production:
 
   # Cache manifest.json for performance
   cache_manifest: true
+
+  node_options: --openssl-legacy-provider
+
